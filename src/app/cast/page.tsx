@@ -1,203 +1,102 @@
-"use client";
-
-import { useState, useMemo } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { castMembers, type CastMember } from "@/data/cast";
 
 function CastCard({ member }: { member: CastMember }) {
-  const initial = member.name.charAt(0);
-
   return (
-    <div className="bg-white rounded-[20px] border-2 border-pink-sweet/40 shadow-md overflow-hidden flex flex-col group hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
-      <div className="relative">
-        <div
-          className="h-1.5 w-full"
-          style={{
-            background:
-              member.generation === 1
-                ? "linear-gradient(to right, #FF99B8, #FFC4D6)"
-                : "linear-gradient(to right, #D8B4F8, #C084FC)",
-          }}
-        />
-        <div className="flex justify-center pt-4 pb-2 px-4 relative">
-          <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-md shrink-0">
-            {member.image ? (
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                sizes="96px"
-                className="object-cover"
-              />
-            ) : (
-              <div
-                className="w-full h-full flex items-center justify-center text-white text-3xl font-bold"
-                style={{
-                  background: `linear-gradient(135deg, ${member.color}, #D8B4F8)`,
-                }}
-              >
-                {initial}
-              </div>
-            )}
-          </div>
-          <span
-            className="absolute top-4 right-4 text-[10px] font-bold px-2 py-0.5 rounded-full text-white"
-            style={{
-              background: member.generation === 1 ? "#FF99B8" : "#9B59B6",
-            }}
+    <Link
+      href={`/cast/${member.id}`}
+      className="group block relative overflow-hidden rounded-[16px] shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border-2 border-white/60"
+    >
+      {/* Photo */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-pink-sweet/20">
+        {member.image ? (
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold"
+            style={{ background: `linear-gradient(135deg, ${member.color}, #D8B4F8)` }}
           >
-            {member.generation}期生
-          </span>
-        </div>
-      </div>
+            {member.name.charAt(0)}
+          </div>
+        )}
 
-      <div className="px-4 pb-2 text-center flex flex-col gap-1">
-        <h3 className="font-bold text-choco-dark text-sm leading-tight">
-          {member.name}
-        </h3>
+        {/* Gradient overlay */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/65 to-transparent" />
+
+        {/* Role badge */}
         {member.role && (
-          <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-sweet/40 text-choco-dark mx-auto">
+          <span className="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-full text-white shadow-sm"
+            style={{ background: member.generation === 1 ? "#FF99B8CC" : "#9B59B6CC" }}>
             {member.role}
           </span>
         )}
-        <a
-          href={`https://x.com/${member.twitter.replace("@", "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[11px] text-lavender-soft hover:text-pink-hot transition font-bold"
-        >
-          {member.twitter}
-        </a>
-        <p className="text-[11px] text-choco-medium/70 leading-relaxed line-clamp-3">
-          💬 {member.message}
-        </p>
-        <details className="text-left mt-1">
-          <summary className="text-[10px] text-choco-medium/50 cursor-pointer hover:text-pink-hot transition select-none">
-            ♡ 好きなこと
-          </summary>
-          <p className="text-[10px] text-choco-medium/70 mt-1 pl-2 border-l-2 border-pink-sweet/40 leading-relaxed">
-            {member.likes}
+
+        {/* Name */}
+        <div className="absolute inset-x-0 bottom-0 px-3 pb-2.5">
+          <p className="text-white font-bold text-sm leading-tight drop-shadow-md truncate">
+            {member.name}
           </p>
-        </details>
+          <p className="text-white/70 text-[10px] font-medium truncate">{member.twitter}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
-type GenFilter = "all" | 1 | 2;
-
-export default function CastPage() {
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<"default" | "asc">("default");
-  const [gen, setGen] = useState<GenFilter>("all");
-
-  const displayed = useMemo(() => {
-    let result = castMembers.filter((c) => {
-      const q = search.toLowerCase();
-      const matchText =
-        c.name.toLowerCase().includes(q) || c.twitter.toLowerCase().includes(q);
-      const matchGen = gen === "all" || c.generation === gen;
-      return matchText && matchGen;
-    });
-    if (sort === "asc") {
-      result = [...result].sort((a, b) => a.name.localeCompare(b.name, "ja"));
-    }
-    return result;
-  }, [search, sort, gen]);
-
-  const gen1Count = castMembers.filter((c) => c.generation === 1).length;
-  const gen2Count = castMembers.filter((c) => c.generation === 2).length;
+function GenerationSection({ gen, label }: { gen: 1 | 2; label: string }) {
+  const members = castMembers.filter((m) => m.generation === gen);
+  const color = gen === 1 ? "#FF99B8" : "#9B59B6";
 
   return (
+    <section className="mb-16">
+      {/* Section divider */}
+      <div className="flex items-center gap-4 mb-8">
+        <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, transparent, ${color}60)` }} />
+        <div className="flex items-center gap-2.5 px-2">
+          <span
+            className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md"
+            style={{ background: color }}
+          >
+            {gen}
+          </span>
+          <h2 className="text-xl font-kiwi font-bold text-choco-dark">{label}</h2>
+          <span className="text-sm text-choco-medium/60">({members.length}名)</span>
+        </div>
+        <div className="flex-1 h-px" style={{ background: `linear-gradient(to left, transparent, ${color}60)` }} />
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {members.map((m) => (
+          <CastCard key={m.id} member={m} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default function CastPage() {
+  return (
     <div className="py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
-          <p className="text-xs text-pink-hot font-bold tracking-widest uppercase mb-1">
-            ✦ Cast ✦
-          </p>
-          <h1 className="text-3xl md:text-4xl font-kiwi font-bold text-choco-dark">
-            キャスト紹介
-          </h1>
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <p className="text-xs text-pink-hot font-bold tracking-widest uppercase mb-1">✦ Cast ✦</p>
+          <h1 className="text-3xl md:text-4xl font-kiwi font-bold text-choco-dark">キャスト紹介</h1>
           <div className="section-divider" />
-          <p className="text-choco-medium mt-4">
+          <p className="text-choco-medium mt-4 text-sm">
             めるぷらむを彩るキャストたちをご紹介します 🌸
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {[
-            {
-              id: "all" as const,
-              label: `全員 (${castMembers.length}名)`,
-              icon: "🌸",
-            },
-            { id: 1 as const, label: `1期生 (${gen1Count}名)`, icon: "☕" },
-            { id: 2 as const, label: `2期生 (${gen2Count}名)`, icon: "🍸" },
-          ].map(({ id, label, icon }) => (
-            <button
-              key={String(id)}
-              onClick={() => setGen(id)}
-              className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
-                gen === id
-                  ? "bg-gradient-to-r from-pink-hot to-lavender-soft text-white shadow-md"
-                  : "bg-white border-2 border-pink-sweet/50 text-choco-medium hover:border-pink-hot"
-              }`}
-            >
-              <span>{icon}</span> {label}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-3 mb-4 max-w-lg mx-auto">
-          <div className="relative flex-1">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-pink-sweet text-sm">
-              🔍
-            </span>
-            <input
-              type="search"
-              placeholder="名前・アカウントで検索..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-full border-2 border-pink-sweet bg-white text-choco-dark placeholder:text-pink-sweet/70 text-sm outline-none focus:border-pink-hot transition"
-            />
-          </div>
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value as "default" | "asc")}
-            className="px-4 py-2.5 rounded-full border-2 border-pink-sweet bg-white text-choco-dark text-sm outline-none focus:border-pink-hot transition font-bold"
-          >
-            <option value="default">登録順</option>
-            <option value="asc">五十音順</option>
-          </select>
-        </div>
-
-        <p className="text-center text-sm text-choco-medium mb-8">
-          {displayed.length} 名のキャストが見つかりました
-        </p>
-
-        {displayed.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-            {displayed.map((c) => (
-              <CastCard key={c.id} member={c} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-5xl mb-4">🔍</p>
-            <p className="text-choco-medium">
-              「{search}」に一致するキャストは見つかりませんでした
-            </p>
-            <button
-              onClick={() => {
-                setSearch("");
-                setGen("all");
-              }}
-              className="btn-secondary mt-4 text-sm"
-            >
-              リセット
-            </button>
-          </div>
-        )}
+        <GenerationSection gen={1} label="1期生" />
+        <GenerationSection gen={2} label="2期生" />
       </div>
     </div>
   );
