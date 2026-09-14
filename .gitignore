@@ -4,4 +4,4 @@ dist
 out
 *.log
 *.env
-assets
+assetsfolder
