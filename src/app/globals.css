@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FFFBF7;
+    color: #5C3A21;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #FFFBF7; }
+  ::-webkit-scrollbar-thumb { background: #FFC4D6; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #FF99B8; }
+}
+
+@layer components {
+  .cafe-card {
+    @apply bg-white rounded-[20px] border-2 border-pink-sweet p-6;
+    box-shadow: 0 4px 20px rgba(255, 153, 184, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cafe-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 153, 184, 0.25);
+  }
+
+  .btn-primary {
+    @apply inline-block font-bold text-white rounded-full px-6 py-3 transition-all;
+    background: linear-gradient(135deg, #FF99B8 0%, #D8B4F8 100%);
+    box-shadow: 0 4px 15px rgba(255, 153, 184, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(255, 153, 184, 0.55);
+  }
+
+  .btn-secondary {
+    @apply inline-block font-bold text-choco-dark bg-white rounded-full px-6 py-3 border-2 border-pink-sweet transition-all;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-pink-sweet/40;
+    transform: translateY(-2px);
+  }
+
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(to right, #FFC4D6, #D8B4F8, #FFC4D6);
+    border-radius: 99px;
+    width: 80px;
+    margin: 0.5rem auto 0;
+  }
+
+  .hero-bg {
+    background: linear-gradient(160deg, #FFFBF7 0%, #FFE8F0 50%, #EEE0FF 100%);
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+  }
+
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(-3deg); }
+  }
+
+  .float-anim { animation: float 4s ease-in-out infinite; }
+  .float-anim-2 { animation: float2 3.5s ease-in-out infinite 1s; }
+  .float-anim-3 { animation: float 5s ease-in-out infinite 2s; }
+}
