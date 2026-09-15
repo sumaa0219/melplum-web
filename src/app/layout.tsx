@@ -30,6 +30,7 @@ export const metadata: Metadata = {
       "ここに集まる、ここから繋がる。プラムちゃんと過ごす甘くて可愛いカフェ＆Bar",
     images: ["/assets/rogobanner.jpeg"],
   },
+  icons: ["/assets/favicon.ico"],
 };
 
 export default function RootLayout({

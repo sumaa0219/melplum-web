@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { castMembers } from "@/data/cast";
+import { castMembers, getCroppedImage } from "@/data/cast";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -37,6 +37,7 @@ export default async function CastMemberPage({
 
   const prev = castMembers.find((m) => m.id === member.id - 1);
   const next = castMembers.find((m) => m.id === member.id + 1);
+  const croppedSrc = getCroppedImage(member);
 
   return (
     <div className="py-12 px-4">
@@ -50,6 +51,7 @@ export default async function CastMemberPage({
         </Link>
 
         <div className="bg-white rounded-[24px] overflow-hidden shadow-xl border-2 border-pink-sweet/30">
+          {/* Wide hero — original image */}
           <div className="relative w-full aspect-video bg-pink-sweet/10 overflow-hidden">
             {member.image ? (
               <Image
@@ -72,22 +74,47 @@ export default async function CastMemberPage({
           </div>
 
           <div className="p-6 md:p-8">
-            <div className="flex flex-wrap items-start gap-3 mb-4">
-              <h1 className="text-2xl md:text-3xl font-kiwi font-bold text-choco-dark leading-tight">
-                {member.name}
-              </h1>
-              <div className="flex flex-wrap gap-2 mt-1">
-                <span
-                  className="text-xs font-bold px-3 py-1 rounded-full text-white shadow-sm"
-                  style={{ background: genColor }}
-                >
-                  {member.generation}期生
-                </span>
-                {member.role && (
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-pink-sweet/50 text-choco-dark">
-                    {member.role}
+            {/* Avatar + name row */}
+            <div className="flex items-end gap-5 mb-4 -mt-16 relative z-10">
+              {/* Circular face-cropped avatar */}
+              <div
+                className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0"
+                style={{ background: `linear-gradient(135deg, ${member.color}, #D8B4F8)` }}
+              >
+                {croppedSrc ? (
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={croppedSrc}
+                      alt={member.name}
+                      fill
+                      sizes="112px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <span className="flex items-center justify-center w-full h-full text-white text-3xl font-bold">
+                    {member.name.charAt(0)}
                   </span>
                 )}
+              </div>
+
+              <div className="pb-1">
+                <div className="flex flex-wrap gap-2 mb-1">
+                  <span
+                    className="text-xs font-bold px-3 py-1 rounded-full text-white shadow-sm"
+                    style={{ background: genColor }}
+                  >
+                    {member.generation}期生
+                  </span>
+                  {member.role && (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-pink-sweet/50 text-choco-dark">
+                      {member.role}
+                    </span>
+                  )}
+                </div>
+                <h1 className="text-2xl md:text-3xl font-kiwi font-bold text-choco-dark leading-tight">
+                  {member.name}
+                </h1>
               </div>
             </div>
 

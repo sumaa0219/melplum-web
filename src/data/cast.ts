@@ -1,3 +1,21 @@
+/**
+ * ============================================================
+ * キャスト管理ファイル
+ * ============================================================
+ * 追加: castMembers 配列に新しいオブジェクトを追加するだけ。
+ *       id は既存の最大値 + 1 にする。
+ *       画像は public/assets/casts/{id}_{twitter_id}.jpg に配置し
+ *       crop_faces.py を実行して顔クロップ画像を生成する。
+ *
+ * 削除: 対象のオブジェクトを配列から削除するだけ。
+ *       対応する画像ファイルも public/assets/casts/ から削除可能。
+ *
+ * 顔クロップ: scripts/crop_faces.py を実行すると
+ *             public/assets/casts/cropped/ に自動生成される。
+ *             位置がずれる場合は croppedImage に手動パスを指定。
+ * ============================================================
+ */
+
 export type CastMember = {
   id: number;
   name: string;
@@ -6,9 +24,20 @@ export type CastMember = {
   generation: 1 | 2;
   likes: string;
   message: string;
+  /** 元画像パス (public/ からの相対) */
   image?: string;
+  /** 顔クロップ画像の手動上書き。未指定時は image から自動導出 */
+  croppedImage?: string;
   color: string;
 };
+
+/** 顔クロップ済み画像パスを返す。なければ元画像を返す。 */
+export function getCroppedImage(member: CastMember): string | undefined {
+  if (member.croppedImage) return member.croppedImage;
+  if (!member.image) return undefined;
+  const filename = member.image.split("/").pop()!;
+  return `/assets/casts/cropped/${filename}`;
+}
 
 export const castMembers: CastMember[] = [
   /* ── 1期生 ────────────────────────────────────────── */

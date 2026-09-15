@@ -1,0 +1,648 @@
+[
+  {
+    "file": "01_naitii.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 71.6,
+      "y": 35.7
+    },
+    "crop": {
+      "left": 629,
+      "top": 68,
+      "right": 1088,
+      "bottom": 642
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 675
+    },
+    "output": "public/assets/casts/cropped/01_naitii.jpg"
+  },
+  {
+    "file": "02_sumizumusuu.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 50,
+      "top": 168,
+      "right": 624,
+      "bottom": 886
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/02_sumizumusuu.jpg"
+  },
+  {
+    "file": "03_mahiruma.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 50,
+      "top": 168,
+      "right": 624,
+      "bottom": 886
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/03_mahiruma.jpg"
+  },
+  {
+    "file": "04_kiriyume.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 26.3,
+      "y": 49.8
+    },
+    "crop": {
+      "left": 0,
+      "top": 389,
+      "right": 553,
+      "bottom": 1081
+    },
+    "original_size": {
+      "w": 651,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/04_kiriyume.jpg"
+  },
+  {
+    "file": "05_yasyasira.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 65.3,
+      "y": 43.8
+    },
+    "crop": {
+      "left": 101,
+      "top": 309,
+      "right": 675,
+      "bottom": 1027
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/05_yasyasira.jpg"
+  },
+  {
+    "file": "06_taisyou.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 48.5,
+      "y": 35.7
+    },
+    "crop": {
+      "left": 352,
+      "top": 68,
+      "right": 811,
+      "bottom": 642
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 675
+    },
+    "output": "public/assets/casts/cropped/06_taisyou.jpg"
+  },
+  {
+    "file": "07_m446.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 370,
+      "top": 43,
+      "right": 829,
+      "bottom": 617
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 675
+    },
+    "output": "public/assets/casts/cropped/07_m446.jpg"
+  },
+  {
+    "file": "08_stove.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 21.5,
+      "y": 48.2
+    },
+    "crop": {
+      "left": 0,
+      "top": 363,
+      "right": 573,
+      "bottom": 1081
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/08_stove.jpg"
+  },
+  {
+    "file": "09_neko.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 370,
+      "top": 43,
+      "right": 829,
+      "bottom": 617
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 675
+    },
+    "output": "public/assets/casts/cropped/09_neko.jpg"
+  },
+  {
+    "file": "10_onitarou.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 38.3,
+      "y": 11.4
+    },
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "right": 573,
+      "bottom": 717
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/10_onitarou.jpg"
+  },
+  {
+    "file": "11_pitoru.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 75.7,
+      "y": 38.8
+    },
+    "crop": {
+      "left": 636,
+      "top": 106,
+      "right": 1180,
+      "bottom": 786
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 800
+    },
+    "output": "public/assets/casts/cropped/11_pitoru.jpg"
+  },
+  {
+    "file": "12_jo.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 54.7,
+      "y": 38.4
+    },
+    "crop": {
+      "left": 82,
+      "top": 245,
+      "right": 655,
+      "bottom": 963
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/12_jo.jpg"
+  },
+  {
+    "file": "13_nyantzer.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 68.8,
+      "y": 48.0
+    },
+    "crop": {
+      "left": 101,
+      "top": 361,
+      "right": 675,
+      "bottom": 1078
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/13_nyantzer.jpg"
+  },
+  {
+    "file": "14_plum.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 40.4,
+      "y": 19.6
+    },
+    "crop": {
+      "left": 0,
+      "top": 19,
+      "right": 573,
+      "bottom": 737
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/14_plum.jpg"
+  },
+  {
+    "file": "16_koimo.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 68.9,
+      "y": 9.6
+    },
+    "crop": {
+      "left": 101,
+      "top": 0,
+      "right": 675,
+      "bottom": 717
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/16_koimo.jpg"
+  },
+  {
+    "file": "17_furuken.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 62.2,
+      "y": 35.3
+    },
+    "crop": {
+      "left": 516,
+      "top": 65,
+      "right": 975,
+      "bottom": 639
+    },
+    "original_size": {
+      "w": 1200,
+      "h": 675
+    },
+    "output": "public/assets/casts/cropped/17_furuken.jpg"
+  },
+  {
+    "file": "18_comet.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 51.9,
+      "y": 38.7
+    },
+    "crop": {
+      "left": 63,
+      "top": 249,
+      "right": 637,
+      "bottom": 966
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/18_comet.jpg"
+  },
+  {
+    "file": "19_osayu.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 56,
+      "top": 142,
+      "right": 701,
+      "bottom": 947
+    },
+    "original_size": {
+      "w": 758,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/19_osayu.jpg"
+  },
+  {
+    "file": "20_amemin.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 50,
+      "top": 168,
+      "right": 624,
+      "bottom": 886
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/20_amemin.jpg"
+  },
+  {
+    "file": "21_sena.jpg",
+    "method": "heuristic",
+    "face_center_pct": {
+      "x": 50.0,
+      "y": 32.0
+    },
+    "crop": {
+      "left": 50,
+      "top": 168,
+      "right": 624,
+      "bottom": 886
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/21_sena.jpg"
+  },
+  {
+    "file": "22_manoko.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 61.6,
+      "y": 35.8
+    },
+    "crop": {
+      "left": 101,
+      "top": 214,
+      "right": 675,
+      "bottom": 932
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/22_manoko.jpg"
+  },
+  {
+    "file": "23_konachan.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 37.6,
+      "y": 31.2
+    },
+    "crop": {
+      "left": 0,
+      "top": 159,
+      "right": 573,
+      "bottom": 877
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/23_konachan.jpg"
+  },
+  {
+    "file": "24_flam.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 39.3,
+      "y": 38.8
+    },
+    "crop": {
+      "left": 0,
+      "top": 250,
+      "right": 573,
+      "bottom": 968
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/24_flam.jpg"
+  },
+  {
+    "file": "25_bananacake.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 56.1,
+      "y": 34.4
+    },
+    "crop": {
+      "left": 91,
+      "top": 197,
+      "right": 665,
+      "bottom": 914
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/25_bananacake.jpg"
+  },
+  {
+    "file": "26_mashira.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 49.1,
+      "y": 30.8
+    },
+    "crop": {
+      "left": 44,
+      "top": 154,
+      "right": 618,
+      "bottom": 871
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/26_mashira.jpg"
+  },
+  {
+    "file": "27_shijimi.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 48.6,
+      "y": 35.0
+    },
+    "crop": {
+      "left": 41,
+      "top": 205,
+      "right": 614,
+      "bottom": 922
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/27_shijimi.jpg"
+  },
+  {
+    "file": "28_amaneyui.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 31.6,
+      "y": 17.3
+    },
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "right": 573,
+      "bottom": 717
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/28_amaneyui.jpg"
+  },
+  {
+    "file": "29_natume.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 63.6,
+      "y": 45.1
+    },
+    "crop": {
+      "left": 101,
+      "top": 325,
+      "right": 675,
+      "bottom": 1043
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/29_natume.jpg"
+  },
+  {
+    "file": "30_yamazakura.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 47.7,
+      "y": 29.9
+    },
+    "crop": {
+      "left": 35,
+      "top": 143,
+      "right": 608,
+      "bottom": 861
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/30_yamazakura.jpg"
+  },
+  {
+    "file": "31_jadeite.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 44.2,
+      "y": 46.9
+    },
+    "crop": {
+      "left": 11,
+      "top": 347,
+      "right": 585,
+      "bottom": 1064
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/31_jadeite.jpg"
+  },
+  {
+    "file": "32_gvnya.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 83.9,
+      "y": 20.1
+    },
+    "crop": {
+      "left": 101,
+      "top": 25,
+      "right": 675,
+      "bottom": 743
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/32_gvnya.jpg"
+  },
+  {
+    "file": "33_shun127.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 34.7,
+      "y": 46.5
+    },
+    "crop": {
+      "left": 0,
+      "top": 342,
+      "right": 573,
+      "bottom": 1060
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/33_shun127.jpg"
+  },
+  {
+    "file": "34_rikku.jpg",
+    "method": "yunet",
+    "face_center_pct": {
+      "x": 38.4,
+      "y": 29.2
+    },
+    "crop": {
+      "left": 0,
+      "top": 134,
+      "right": 573,
+      "bottom": 852
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/34_rikku.jpg"
+  },
+  {
+    "file": "35_nankotsuu.jpg",
+    "method": "haar",
+    "face_center_pct": {
+      "x": 28.5,
+      "y": 54.2
+    },
+    "crop": {
+      "left": 0,
+      "top": 435,
+      "right": 573,
+      "bottom": 1152
+    },
+    "original_size": {
+      "w": 675,
+      "h": 1200
+    },
+    "output": "public/assets/casts/cropped/35_nankotsuu.jpg"
+  }
+]

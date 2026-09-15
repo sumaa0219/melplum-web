@@ -1,22 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import { castMembers, type CastMember } from "@/data/cast";
+import { castMembers, getCroppedImage, type CastMember } from "@/data/cast";
 
 function CastCard({ member }: { member: CastMember }) {
+  const portrait = getCroppedImage(member);
   return (
     <Link
       href={`/cast/${member.id}`}
       className="group block relative overflow-hidden rounded-[16px] shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border-2 border-white/60"
     >
-      {/* Photo */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-pink-sweet/20">
-        {member.image ? (
+      {/* Photo — portrait 4:5 */}
+      <div className="relative aspect-[4/5] overflow-hidden bg-pink-sweet/20">
+        {portrait ? (
           <Image
-            src={member.image}
+            src={portrait}
             alt={member.name}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div
