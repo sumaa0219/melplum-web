@@ -62,7 +62,9 @@ export default function NextEventBanner() {
     const m = MONTHS[next.getMonth()];
     const d = next.getDate();
     const dow = DAYS[next.getDay()];
-    const label = isTodayFlag ? `今夜（${m}/${d}・${dow}）` : `${m}/${d}（${dow}）`;
+    const label = isTodayFlag
+      ? `今夜（${m}/${d}・${dow}）`
+      : `${m}/${d}（${dow}）`;
     return { type, label, isToday: isTodayFlag };
   }, []);
 
@@ -89,8 +91,10 @@ export default function NextEventBanner() {
       />
 
       <div className="relative z-10 px-6 py-5 text-center">
-        <p className="text-[11px] font-bold tracking-widest uppercase mb-1"
-          style={{ color: isCafe ? "#FF5599" : "#7C3AED" }}>
+        <p
+          className="text-[11px] font-bold tracking-widest uppercase mb-1"
+          style={{ color: isCafe ? "#FF5599" : "#7C3AED" }}
+        >
           ✦ Next Event ✦
         </p>
 
@@ -99,8 +103,10 @@ export default function NextEventBanner() {
         </p>
 
         {/* Date */}
-        <p className="text-2xl font-kiwi font-bold mb-3"
-          style={{ color: isCafe ? "#CC3366" : "#6B21A8" }}>
+        <p
+          className="text-2xl font-kiwi font-bold mb-3"
+          style={{ color: isCafe ? "#CC3366" : "#6B21A8" }}
+        >
           {label}
         </p>
 
