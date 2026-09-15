@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MediaFrame from "@/components/MediaFrame";
 import TransparentLogoBanner from "@/components/TransparentLogoBanner";
+import NextEventBanner from "@/components/NextEventBanner";
 
 export default function HomePage() {
   return (
@@ -46,6 +47,9 @@ export default function HomePage() {
             <span className="text-pink-hot">プラムちゃん</span>
             と過ごす甘くて可愛いカフェ＆Bar
           </h1>
+
+          {/* Next event type banner */}
+          <NextEventBanner />
 
           {/* Schedule Badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">

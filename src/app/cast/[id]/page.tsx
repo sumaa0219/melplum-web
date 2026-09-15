@@ -42,7 +42,6 @@ export default async function CastMemberPage({
   return (
     <div className="py-12 px-4">
       <div className="max-w-3xl mx-auto">
-
         <Link
           href="/cast"
           className="inline-flex items-center gap-2 text-sm text-choco-medium hover:text-pink-hot transition font-bold mb-8"
@@ -65,7 +64,9 @@ export default async function CastMemberPage({
             ) : (
               <div
                 className="absolute inset-0 flex items-center justify-center text-white text-8xl font-bold"
-                style={{ background: `linear-gradient(135deg, ${member.color}, #D8B4F8)` }}
+                style={{
+                  background: `linear-gradient(135deg, ${member.color}, #D8B4F8)`,
+                }}
               >
                 {member.name.charAt(0)}
               </div>
@@ -79,7 +80,9 @@ export default async function CastMemberPage({
               {/* Circular face-cropped avatar */}
               <div
                 className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0"
-                style={{ background: `linear-gradient(135deg, ${member.color}, #D8B4F8)` }}
+                style={{
+                  background: `linear-gradient(135deg, ${member.color}, #D8B4F8)`,
+                }}
               >
                 {croppedSrc ? (
                   <div className="relative w-full h-full">
@@ -127,7 +130,10 @@ export default async function CastMemberPage({
               𝕏 {member.twitter}
             </a>
 
-            <div className="rounded-[16px] p-5 mb-6 relative" style={{ background: genBg }}>
+            <div
+              className="rounded-[16px] p-5 mb-6 relative"
+              style={{ background: genBg }}
+            >
               <span
                 className="absolute -top-3 left-5 text-3xl font-serif leading-none opacity-30"
                 style={{ color: genColor }}
@@ -149,7 +155,9 @@ export default async function CastMemberPage({
               <p className="text-xs font-bold text-choco-medium mb-2">
                 ♡ 好きなこと・もの
               </p>
-              <p className="text-sm text-choco-dark leading-relaxed">{member.likes}</p>
+              <p className="text-sm text-choco-dark leading-relaxed">
+                {member.likes}
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -192,7 +200,6 @@ export default async function CastMemberPage({
             </div>
           </div>
         )}
-
       </div>
     </div>
   );
