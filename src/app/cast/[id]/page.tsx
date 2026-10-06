@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { castMembers, getCroppedImage } from "@/data/cast";
+import { castMembers, getIconImage } from "@/data/cast";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -37,7 +37,7 @@ export default async function CastMemberPage({
 
   const prev = castMembers.find((m) => m.id === member.id - 1);
   const next = castMembers.find((m) => m.id === member.id + 1);
-  const croppedSrc = getCroppedImage(member);
+  const iconSrc = getIconImage(member);
 
   return (
     <div className="py-12 px-4">
@@ -84,10 +84,10 @@ export default async function CastMemberPage({
                   background: `linear-gradient(135deg, ${member.color}, #D8B4F8)`,
                 }}
               >
-                {croppedSrc ? (
+                {iconSrc ? (
                   <div className="relative w-full h-full">
                     <Image
-                      src={croppedSrc}
+                      src={iconSrc}
                       alt={member.name}
                       fill
                       sizes="112px"

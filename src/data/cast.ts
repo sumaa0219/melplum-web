@@ -28,6 +28,8 @@ export type CastMember = {
   image?: string;
   /** 顔クロップ画像の手動上書き。未指定時は image から自動導出 */
   croppedImage?: string;
+  /** アイコン画像の手動上書き。未指定時は image から自動導出 */
+  iconImage?: string;
   color: string;
 };
 
@@ -37,6 +39,14 @@ export function getCroppedImage(member: CastMember): string | undefined {
   if (!member.image) return undefined;
   const filename = member.image.split("/").pop()!;
   return `/assets/casts/cropped/${filename}`;
+}
+
+/** アイコン用画像パスを返す。未指定時は /assets/casts/icon/ 配下の同名ファイルを返す。 */
+export function getIconImage(member: CastMember): string | undefined {
+  if (member.iconImage) return member.iconImage;
+  if (!member.image) return undefined;
+  const filename = member.image.split("/").pop()!;
+  return `/assets/casts/icon/${filename}`;
 }
 
 export const castMembers: CastMember[] = [
